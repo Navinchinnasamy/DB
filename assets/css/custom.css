@@ -1,0 +1,39 @@
+@media (min-width: 993px){
+	.m-header-menu.m-header-menu--skin-dark .m-menu__nav > .m-menu__item > .m-menu__link .m-menu__link-text {
+		color: #c4c5ca !important;
+	}
+}
+
+li.nav-item.current {
+    background: #2c2d3a !important;
+	transition: all 0.35s ease-in !important;
+}
+li.nav-item.current a{
+    color: #c4c5ca !important;
+}
+
+.nav-tabs .nav-link {
+    border: 1px transparent !important;
+}
+
+.nav.nav-pills, .nav.nav-tabs {
+    margin-bottom: 10px !important;
+}
+.wizard-buttons {
+    margin-top: 0px !important;
+    float: right;
+}
+
+.btn.btn-default, .btn.btn-secondary {
+    border-color: #c4c5ca !important;
+}
+
+.progress-bar.active, .progress.active .progress-bar {
+    -webkit-animation: progress-bar-stripes 2s linear infinite !important;
+    -o-animation: progress-bar-stripes 2s linear infinite !important;
+    /* animation: progress-bar-stripes 2s linear infinite; */
+}
+
+[data-fv-result="INVALID"]{
+    color: rgb(244, 85, 107);
+}
