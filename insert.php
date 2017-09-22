@@ -32,11 +32,17 @@
                 <!-- END: Subheader -->
                 <div class="m-content">
 
-                    <div id="bar-basic" style="clear: both;margin-bottom: 1.5%;">
+                    <div id="bar-basic" class="processss_running"
+                         style="clear: both;margin-bottom: 1.5%; display: none;">
 
                     </div>
 
-                    <div class="col-xl-12" style="padding: 0;">
+                    <div id="progress-basic" class="process_running"
+                         style="clear: both;margin-bottom: 1.5%; display: none;">
+
+                    </div>
+
+                    <div class="col-xl-12 process_running" id="audit_log" style="padding: 0; display: none;">
                         <!--begin:: Widgets/Audit Log-->
                         <div class="m-portlet m-portlet--full-height">
                             <div class="m-portlet__head">
@@ -96,22 +102,22 @@
                         <ul class="wizard-steps nav nav-tabs" role="tablist">
                             <li class="active nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="1">Step 1<br/>
-                                    <small>This is step description</small>
+                                    <small>Fill the credentials of database to be fetched</small>
                                 </a>
                             </li>
                             <li class="nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="2">Step 2<br/>
-                                    <small>This is step description</small>
+                                    <small>Fill the credentials of database to be inserted</small>
                                 </a>
                             </li>
                             <li class="nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="3">Step 3<br/>
-                                    <small>This is step description</small>
+                                    <small>Let me know the table to be fetched</small>
                                 </a>
                             </li>
                             <li class="nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="4">Step 4<br/>
-                                    <small>This is step description</small>
+                                    <small>Let's set the iterations</small>
                                 </a>
                             </li>
                         </ul>
@@ -129,7 +135,7 @@
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">First Name</label>
+                                                                    <label class="control-label">Database Type</label>
                                                                     <select name="dbtype1" id="db1_dbtype"
                                                                             class="form-control">
                                                                         <option value="">Select DB Type</option>
@@ -214,7 +220,7 @@
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">First Name</label>
+                                                                    <label class="control-label">Database Type</label>
                                                                     <select name="dbtype2" id="db2_dbtype"
                                                                             class="form-control">
                                                                         <option value="">Select DB Type</option>

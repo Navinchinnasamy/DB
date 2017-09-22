@@ -1,131 +1,134 @@
 //== Class definition
+var g_iterations = 0, loopInterval = null, finishedCount = 0, g_offset = 0;
+var pbar = {};
+
 var Index = function () {
 
     var wizard = function () {
         $('#exampleValidator').wizard({
             buttonLabels: {
-                next  : 'Next',
-                back  : 'Prevoius',
+                next: 'Next',
+                back: 'Previous',
                 finish: 'Finish'
             },
-            templates   : {
+            templates: {
                 buttons: function () {
                     const options = this.options;
                     var id = $(this).attr('id');
                     return '<div class="wizard-buttons"><a class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom" href="#' + id + '" data-wizard="back" role="button">' + options.buttonLabels.back + '</a><a class="btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom" href="#' + id + '" data-wizard="next" role="button">' + options.buttonLabels.next + '</a><a class="wizard-finish btn m-btn--pill btn-secondary m-btn m-btn--hover-brand m-btn--custom" href="#' + id + '" data-wizard="finish" role="button">' + options.buttonLabels.finish + '</a></div>';
                 }
             },
-            onInit      : function () {
+            onInit: function () {
                 $('#validation').formValidation({
-                    framework      : 'bootstrap',
+                    framework: 'bootstrap',
                     buttonsAppendTo: 'this',
-                    fields         : {
-                        dbtype1      : {
+                    fields: {
+                        dbtype1: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Database Type is required'
+                                }
+                            }
+                        }, host1: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Without host we can\'t fetch'
+                                }
+                            }
+                        }, port1: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please tell me the Port'
+                                }
+                            }
+                        }, database1: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Let me know the database to be fetched'
+                                }
+                            }
+                        }, username1: {
                             validators: {
                                 notEmpty: {
                                     message: 'The username is required'
                                 }
                             }
-                        }, host1     : {
+                        }, password1: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Password please'
+                                }
+                            }
+                        }, dbtype2: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Database Type is required'
+                                }
+                            }
+                        }, host2: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Without host we can\'t fetch'
+                                }
+                            }
+                        }, port2: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please tell me the Port'
+                                }
+                            }
+                        }, database2: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Let me know the database to be inserted'
+                                }
+                            }
+                        }, username2: {
                             validators: {
                                 notEmpty: {
                                     message: 'The username is required'
                                 }
                             }
-                        }, port1     : {
+                        }, password2: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'Password please'
                                 }
                             }
-                        }, database1 : {
+                        }, table: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'Table name is required'
                                 }
                             }
-                        }, username1 : {
+                        }, column: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'Please set primary column of the table'
                                 }
                             }
-                        }, password1 : {
+                        }, count: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'How much column you want?'
                                 }
                             }
-                        }, dbtype2   : {
+                        }, order: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, host2     : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, port2     : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, database2 : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, username2 : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, password2 : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, table     : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, column    : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, count     : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
-                                }
-                            }
-                        }, order     : {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'In which order you want the records?'
                                 }
                             }
                         }, iterations: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'How many time you want me to run?'
                                 }
                             }
-                        }, interval  : {
+                        }, interval: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The username is required'
+                                    message: 'What is the time interval to run in loop?'
                                 }
                             }
                         }
@@ -133,7 +136,7 @@ var Index = function () {
                 });
 
             },
-            validator   : function () {
+            validator: function () {
                 var fv = $('#validation').data('formValidation');
                 var $this = $(this);
                 // Validate the container
@@ -144,39 +147,36 @@ var Index = function () {
                 }
                 return true;
             },
-            onFinish    : function () {
-                $('#validation').submit();
-                alert('finish');
+            onFinish: function () {
+                // $('#validation').submit();
 
                 var data = {};
-                $.each($("#exampleValidator").find("input,select"), function(i, d){
+                $.each($("#exampleValidator").find("input,select"), function (i, d) {
                     var id = $(d).attr('id');
                     id = id.split('_');
-                    if(id[1]){
-                        if(!data[id[0]]){
+                    if (id[1]) {
+                        if (!data[id[0]]) {
                             data[id[0]] = {};
                         }
                         data[id[0]][id[1]] = $(d).val();
-                    } else{
+                    } else {
                         data[id[0]] = $(d).val();
                     }
                 });
-
-                console.log(data)
-
+                Index.insert_records(data);
             }
         });
 
         $('#exampleValidator').on('wizard::afterChange', function (e, a, b, c) {
-            var t = $($(c)[ 0 ].$element).find('a').attr('current_ind');
+            var t = $($(c)[0].$element).find('a').attr('current_ind');
             switch (t) {
                 case '1':
                     $('#main_title').text("Database 1");
-                    $('#sub_title').text("[Fetch] Credentialas");
+                    $('#sub_title').text("[Fetch] Credentials");
                     break;
                 case '2':
                     $('#main_title').text("Database 2");
-                    $('#sub_title').text("[Insert] Credentialas");
+                    $('#sub_title').text("[Insert] Credentials");
                     break;
                 case '3':
                     $('#main_title').text("Table Details");
@@ -187,21 +187,104 @@ var Index = function () {
                     $('#sub_title').text("2");
                     break;
             }
-
-
         });
 
-    }
+        },
+        progressBar = function () {
+            var pbar = $('#progress-basic').progressbarManager({
+                totalValue: 100,
+                animate: true,
+                currentValue: 0,
+                stripe: true
+            });
+            return pbar;
+        },
+        insert_records = function (data) {
+            finishedCount = 0;
+            g_iterations = 0;
+            g_iterations = (data.iterations) ? data.iterations : 1;
+            $("#exampleValidator").hide();
+            $(".process_running").show();
+            data.offset = g_offset;
+            func_iterations(data);
+            var loop_interval = (data.interval) ? data.interval : 60;
+            loopInterval = setInterval(function () {
+                data.offset = g_offset;
+                func_iterations(data)
+            }, loop_interval * 1000);
+        },
+        func_iterations = function (data) {
+            if (g_iterations > 0) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'insert_sleep.php',
+                    data: data,
+                    success: function (ret) {
+                        try {
+                            $("body").find("#finished").html(++finishedCount);
+                            ret = JSON.parse(ret);
+                            if (ret.status == "failed") {
+                                // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
+                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                            } else {
+                                // $("body").find("#result_from_query ol").append('<li>'+ret.msg+'</li>');
+                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--info"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                            }
+                        } catch (err) {
+                            $(".process_running").hide();
+                            $("#exampleValidator").show();
+                            // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
+                            $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                            clearInterval(loopInterval);
+                        }
+                    }
+                });
+                g_iterations -= 1;
+                g_offset = parseInt(g_offset) + parseInt(data.count);
 
+                var perc = ((finishedCount / data.iterations) * 100);
+                perc = Math.round(perc);
+                pbar.setValue(perc);
+            } else {
+                $(".process_running").hide();
+                $("#exampleValidator").show();
+                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--success"></span> <span class="m-list-timeline__text"> Completed </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                clearInterval(loopInterval);
+            }
+        };
 
     return {
         init: function () {
             wizard();
+        },
+        progressBar: function () {
+            return progressBar();
+        },
+        insert_records: function (data) {
+            insert_records(data);
         }
     };
 }();
 
+$(window).on("unload", function (e) {
+    $.each($("#exampleValidator").find("input,select"), function (i, d) {
+        var id = $(d).attr('id');
+        sessionStorage.setItem(id, $(d).val());
+    });
+});
+
+$(window).on("load", function (e) {
+    $.each($("#exampleValidator").find("input,select"), function (i, d) {
+        var id = $(d).attr('id');
+        var val = sessionStorage.getItem(id);
+        if (val) {
+            $(d).val(val);
+        }
+    });
+});
+
 //== Class initialization on page load
 jQuery(document).ready(function () {
     Index.init();
+    pbar = Index.progressBar();
 });
