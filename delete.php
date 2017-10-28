@@ -7,7 +7,7 @@
                     <div class="d-flex align-items-center">
                         <div class="mr-auto">
                             <h3 class="m-subheader__title m-subheader__title--separator" id="main_title">
-                                Database 1
+                                Database
                             </h3>
                             <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                                 <li class="m-nav__item m-nav__item--home">
@@ -21,7 +21,7 @@
                                 <li class="m-nav__item">
                                     <a href="javascript:;" class="m-nav__link">
 												<span class="m-nav__link-text" id="sub_title">
-													[Fetch] Credentialas
+													[Database] Credentialas
 												</span>
                                     </a>
                                 </li>
@@ -72,21 +72,16 @@
                         <ul class="wizard-steps nav nav-tabs" role="tablist">
                             <li class="active nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="1">Step 1<br/>
-                                    <small>Fill the credentials of database to be fetched</small>
+                                    <small>Fill the credentials of database</small>
                                 </a>
                             </li>
                             <li class="nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="2">Step 2<br/>
-                                    <small>Fill the credentials of database to be inserted</small>
+                                    <small>Let me know the table to be deleted</small>
                                 </a>
                             </li>
                             <li class="nav-item" role="tab">
                                 <a class="nav-link" href="javascript:;" current_ind="3">Step 3<br/>
-                                    <small>Let me know the table to be fetched</small>
-                                </a>
-                            </li>
-                            <li class="nav-item" role="tab">
-                                <a class="nav-link" href="javascript:;" current_ind="4">Step 4<br/>
                                     <small>Let's set the iterations</small>
                                 </a>
                             </li>
@@ -118,8 +113,8 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group has-error">
                                                                     <label class="control-label">Host Name</label>
-                                                                    <input class="form-control" type="text" name="host1"
-                                                                           id="db1_host" title="Host Name"
+                                                                    <input class="form-control" type="text" name="host"
+                                                                           id="db_host" title="Host Name"
                                                                            placeholder="Host name.." value="">
                                                                 </div>
                                                             </div>
@@ -127,7 +122,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group has-error">
                                                                     <label class="control-label">Port</label>
-                                                                    <input type="text" name="port1" id="db1_port"
+                                                                    <input type="text" name="port" id="db_port"
                                                                            class="form-control"
                                                                            title="Port Number" placeholder="Port.."
                                                                            value="">
@@ -141,9 +136,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Database Name</label>
-                                                                    <input type="text" name="database1"
+                                                                    <input type="text" name="database"
                                                                            class="form-control"
-                                                                           id="db1_database" title="Database Name"
+                                                                           id="db_database" title="Database Name"
                                                                            placeholder="Database Name.." value="">
                                                                 </div>
                                                             </div>
@@ -151,9 +146,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group has-error">
                                                                     <label class="control-label">DB Username</label>
-                                                                    <input type="text" name="username1"
+                                                                    <input type="text" name="username"
                                                                            class="form-control"
-                                                                           id="db1_username" title="DB Username"
+                                                                           id="db_username" title="DB Username"
                                                                            placeholder="Userame.." value="">
                                                                 </div>
                                                             </div>
@@ -161,94 +156,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group has-error">
                                                                     <label class="control-label">DB Password</label>
-                                                                    <input type="password" name="password1"
+                                                                    <input type="password" name="password"
                                                                            class="form-control"
-                                                                           id="db1_password" title="DB Password"
-                                                                           placeholder="Password.." value="">
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!--/row-->
-
-                                                    </div>
-                                                </div>
-                                                <!-- END FORM-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="wizard-pane" role="tabpanel">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="portlet-body form">
-                                                <!-- BEGIN FORM-->
-                                                <div action="#" class="horizontal-form">
-                                                    <div class="form-body">
-                                                        <!--row-->
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Database Type</label>
-                                                                    <select name="dbtype2" id="db2_dbtype"
-                                                                            class="form-control">
-                                                                        <option value="">Select DB Type</option>
-                                                                        <option value="mysql">MySQL</option>
-                                                                        <option value="pgsql">Postgres</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <div class="form-group has-error">
-                                                                    <label class="control-label">Host Name</label>
-                                                                    <input class="form-control" type="text" name="host2"
-                                                                           id="db2_host" title="Host Name"
-                                                                           placeholder="Host name.." value="">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <div class="form-group has-error">
-                                                                    <label class="control-label">Port</label>
-                                                                    <input type="text" name="port2" id="db2_port"
-                                                                           class="form-control"
-                                                                           title="Port Number" placeholder="Port.."
-                                                                           value="">
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <!--/row-->
-                                                        <!--row-->
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Database Name</label>
-                                                                    <input type="text" name="database2"
-                                                                           class="form-control"
-                                                                           id="db2_database" title="Database Name"
-                                                                           placeholder="Database Name.." value="">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <div class="form-group has-error">
-                                                                    <label class="control-label">DB Username</label>
-                                                                    <input type="text" name="username2"
-                                                                           class="form-control"
-                                                                           id="db2_username" title="DB Username"
-                                                                           placeholder="Userame.." value="">
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <div class="form-group has-error">
-                                                                    <label class="control-label">DB Password</label>
-                                                                    <input type="password" name="password2"
-                                                                           class="form-control"
-                                                                           id="db2_password" title="DB Password"
+                                                                           id="db_password" title="DB Password"
                                                                            placeholder="Password.." value="">
                                                                 </div>
                                                             </div>

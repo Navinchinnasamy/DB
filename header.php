@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>
-        Metronic | Dashboard
+        Dynamic Insert
     </title>
     <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@ $first_part = $components[2];
 														Hello,&nbsp;
 													</span>
                                             <span class="m-topbar__username">
-														Nick
+														Palani Velayudam
 													</span>
                                         </a>
                                         <div class="m-dropdown__wrapper">
@@ -127,20 +127,33 @@ $first_part = $components[2];
                         <div id="m_header_menu"
                              class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
                             <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-                                <li class="m-menu__item  <?php if ($first_part=="dashboard.php") {echo "m-menu__item--active"; } else  {echo "noactive";}?>" aria-haspopup="true">
+                                <!-- <li class="m-menu__item  <?php /* if ($first_part=="dashboard.php") {echo "m-menu__item--active"; } else  {echo "noactive";} */ ?>" aria-haspopup="true">
                                     <a href="dashboard.php" class="m-menu__link ">
                                         <span class="m-menu__item-here"></span>
                                         <span class="m-menu__link-text">
 													Dashboard
 												</span>
                                     </a>
-                                </li>
+                                </li> -->
 
                                 <li class="m-menu__item <?php if ($first_part=="insert.php") {echo "m-menu__item--active"; } else  {echo "noactive";}?>" aria-haspopup="true">
                                     <a href="insert.php" class="m-menu__link ">
                                         <span class="m-menu__item-here"></span>
                                         <span class="m-menu__link-text">
 													Insert
+												</span>
+                                    </a>
+                                </li>
+
+                                <li class="m-menu__item <?php if ($first_part == "delete.php") {
+                                    echo "m-menu__item--active";
+                                } else {
+                                    echo "noactive";
+                                } ?>" aria-haspopup="true">
+                                    <a href="delete.php" class="m-menu__link ">
+                                        <span class="m-menu__item-here"></span>
+                                        <span class="m-menu__link-text">
+													Delete
 												</span>
                                     </a>
                                 </li>

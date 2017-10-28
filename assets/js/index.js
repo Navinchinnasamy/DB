@@ -4,6 +4,39 @@ var pbar = {};
 
 var Index = function () {
 
+    var altDate = function (value) {
+        var diff = Date.now() - new Date(value);
+
+        /**
+         * If in a hour
+         * e.g. "2 minutes ago"
+         */
+        if (diff < (60 * 60 * 1000)) {
+            return moment(value).fromNow();
+        }
+        /*
+         * If in the day
+         * e.g. "11:23"
+         */
+        else if (diff < (60 * 60 * 24 * 1000)) {
+            return moment(value).format('HH:mm');
+        }
+        /*
+         * If in week
+         * e.g "Tuesday"
+         */
+        else if (diff < (60 * 60 * 24 * 7 * 1000)) {
+            return moment(value).format('dddd');
+        }
+        /*
+         * If more than a week
+         * e.g. 03/29/2016
+         */
+        else {
+            return moment(value).calendar();
+        }
+    };
+
     var wizard = function () {
         $('#exampleValidator').wizard({
             buttonLabels: {
@@ -225,16 +258,16 @@ var Index = function () {
                             ret = JSON.parse(ret);
                             if (ret.status == "failed") {
                                 // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
-                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             } else {
                                 // $("body").find("#result_from_query ol").append('<li>'+ret.msg+'</li>');
-                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--info"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                                $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--info"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             }
                         } catch (err) {
                             $(".process_running").hide();
                             $("#exampleValidator").show();
                             // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
-                            $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + new Date() + ' </span> </div>');
+                            $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             clearInterval(loopInterval);
                         }
                     }

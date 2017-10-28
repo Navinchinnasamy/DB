@@ -242,11 +242,11 @@
                                                     </div>
                                                     <div class="m-widget4__info">
 																<span class="m-widget4__title">
-																	Nick Bold
+																	Palani Velayudam
 																</span>
                                                         <br>
                                                         <span class="m-widget4__sub">
-																	Web Developer, Facebook Inc
+																	UI Designer
 																</span>
                                                     </div>
                                                     <div class="m-widget4__ext">
@@ -264,11 +264,11 @@
                                                     </div>
                                                     <div class="m-widget4__info">
 																<span class="m-widget4__title">
-																	Wiltor Delton
+																	Navin
 																</span>
                                                         <br>
                                                         <span class="m-widget4__sub">
-																	Project Manager, Amazon Inc
+																	Software Engineer
 																</span>
                                                     </div>
                                                     <div class="m-widget4__ext">

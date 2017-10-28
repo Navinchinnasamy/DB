@@ -134,7 +134,7 @@ if (!$db1 || !$db2) {
             }
         }
 
-        $data = array('status' => 'success', 'msg' => "{$count} Row(s) Selected From {$table} Table and {$inserted} Row(s) Inserted. [{$insertColumns}]");
+        $data = array('status' => 'success', 'msg' => "{$count} Row(s) Selected From {$table} Table and {$inserted} Row(s) Inserted.");
     } else {
         $data = array('status' => 'failed', 'msg' => "0 Row Selected From {$table} Table");
     }
