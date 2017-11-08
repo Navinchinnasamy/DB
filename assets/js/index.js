@@ -56,6 +56,43 @@ var Index = function () {
                     framework: 'bootstrap',
                     buttonsAppendTo: 'this',
                     fields: {
+                        dbtype: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Database Type is required'
+                                }
+                            }
+                        }, host: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Without host we can\'t fetch'
+                                }
+                            }
+                        }, port: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please tell me the Port'
+                                }
+                            }
+                        }, database: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Let me know the database to be fetched'
+                                }
+                            }
+                        }, username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required'
+                                }
+                            }
+                        }, password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Password please'
+                                }
+                            }
+                        },
                         dbtype1: {
                             validators: {
                                 notEmpty: {
@@ -175,9 +212,7 @@ var Index = function () {
                 // Validate the container
                 fv.validateContainer($this);
                 var isValidStep = fv.isValidContainer($this);
-                if (isValidStep === false || isValidStep === null) {
-                    return false;
-                }
+                if (isValidStep === false || isValidStep === null) return false;
                 return true;
             },
             onFinish: function () {
@@ -201,25 +236,27 @@ var Index = function () {
         });
 
         $('#exampleValidator').on('wizard::afterChange', function (e, a, b, c) {
-            var t = $($(c)[0].$element).find('a').attr('current_ind');
+            var t = $($(c)[0].$element).find('a').attr('current_ind'), main_title = "", sub_title = "";
             switch (t) {
                 case '1':
-                    $('#main_title').text("Database 1");
-                    $('#sub_title').text("[Fetch] Credentials");
+                    main_title = "Database 1";
+                    sub_title = "[Fetch] Credentials";
                     break;
                 case '2':
-                    $('#main_title').text("Database 2");
-                    $('#sub_title').text("[Insert] Credentials");
+                    main_title = "Database 2";
+                    sub_title = "[Insert] Credentials";
                     break;
                 case '3':
-                    $('#main_title').text("Table Details");
-                    $('#sub_title').text("1");
+                    main_title = "Table";
+                    sub_title = "Table Details";
                     break;
                 case '4':
-                    $('#main_title').text("Iteration Details");
-                    $('#sub_title').text("2");
+                    main_title = "Iteration";
+                    sub_title = "Iteration Details";
                     break;
             }
+            $('#main_title').text(main_title);
+            $('#sub_title').text(sub_title);
         });
 
         },
