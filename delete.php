@@ -88,6 +88,7 @@
                         </ul>
 
                         <form id="validation" class="form-horizontal">
+                            <input type="hidden" name="reqfor" id="reqfor" value="delete"/>
                             <div class="wizard-content">
                                 <div class="wizard-pane active" role="tabpanel">
                                     <div class="row">
@@ -101,7 +102,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label class="control-label">Database Type</label>
-                                                                    <select name="dbtype1" id="db1_dbtype"
+                                                                    <select name="dbtype" id="db_dbtype"
                                                                             class="form-control">
                                                                         <option value="">Select DB Type</option>
                                                                         <option value="mysql">MySQL</option>
@@ -205,11 +206,11 @@
 
                                                             <div class="col-md-4">
                                                                 <div class="form-group has-error">
-                                                                    <label class="control-label">Insert Count</label>
+                                                                    <label class="control-label">Delete Count</label>
                                                                     <input type="text" name="count" id="count"
                                                                            class="form-control"
                                                                            title="Insert Row Count"
-                                                                           placeholder="Insert Count.." value="">
+                                                                           placeholder="Delete Count.." value="">
                                                                 </div>
                                                             </div>
 
@@ -219,10 +220,10 @@
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Insert Order</label>
+                                                                    <label class="control-label">Delete Order</label>
                                                                     <input type="text" name="order" id="order"
                                                                            class="form-control"
-                                                                           title="Insert Order"
+                                                                           title="Delete Order"
                                                                            placeholder="Insert Order.." value="">
                                                                 </div>
                                                             </div>

@@ -248,9 +248,10 @@ var Index = function () {
         },
         func_iterations = function (data) {
             if (g_iterations > 0) {
+                var url = (data.reqfor && data.reqfor == "delete") ? 'delete_sleep.php' : 'insert_sleep.php';
                 $.ajax({
                     type: 'POST',
-                    url: 'insert_sleep.php',
+                    url: url,
                     data: data,
                     success: function (ret) {
                         try {

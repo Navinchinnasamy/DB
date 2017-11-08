@@ -4,20 +4,20 @@ error_reporting(0);
 
 $post = $_POST;
 
-if ($post['dbtype'] == "mysql") {
-    $host = $post['host'];
-    $port = $post['port'];
-    $dbname = $post['database'];
-    $username = $post['username'];
-    $password = $post['password'];
+if ($post['db']['dbtype'] == "mysql") {
+    $host = $post['db']['host'];
+    $port = $post['db']['port'];
+    $dbname = $post['db']['database'];
+    $username = $post['db']['username'];
+    $password = $post['db']['password'];
 
     $db = mysqli_connect($host, $username, $password, $dbname);
     $error1 = (!$db1) ? mysqli_connect_error() : "";
 } else {
-    $host = "host = {$post['host']}";
-    $port = "port = {$post['port']}";
-    $dbname = "dbname = {$post['database']}";
-    $credentials = "user = {$post['username']} password={$post['password']}";
+    $host = "host = {$post['db']['host']}";
+    $port = "port = {$post['db']['port']}";
+    $dbname = "dbname = {$post['db']['database']}";
+    $credentials = "user = {$post['db']['username']} password={$post['db']['password']}";
 
     $db = pg_connect("$host $port $dbname $credentials");
     $error1 = (!$db1) ? pg_last_error() : "";

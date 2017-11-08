@@ -93,6 +93,7 @@
                         </ul>
 
                         <form id="validation" class="form-horizontal">
+                            <input type="hidden" name="reqfor" id="reqfor" value="insert"/>
                             <div class="wizard-content">
                                 <div class="wizard-pane active" role="tabpanel">
                                     <div class="row">
