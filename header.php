@@ -25,7 +25,7 @@
     <link href="assets/base/base/style.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
     <!--end::Base Styles -->
-    <link rel="shortcut icon" href="assets/base/media/img/logo/favicon.ico"/>
+    <link rel="shortcut icon" href="assets/image/DB.png"/>
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
