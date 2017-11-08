@@ -1,5 +1,5 @@
 /**
- * @class mApp  Metronic App class
+ * @class mApp DB App class
  */
 
 var mApp = function() {
@@ -351,7 +351,7 @@ $(document).ready(function() {
     mApp.init();
 });
 /**
- * @class mUtil  Metronic base utilize class that privides helper functions
+ * @class mUtil  DB base utilize class that privides helper functions
  */
 
 var mUtil = function() {
@@ -6108,30 +6108,6 @@ var mLayout = function() {
         }, 6000);                 
     }
 
-    // handle quick search
-    var initQuicksearch = function() {
-        var qs = $('#m_quicksearch');
-
-        qs.mQuicksearch({
-            type: qs.data('search-type'), // quick search type
-            source: 'http://keenthemes.com/metronic/preview/inc/api/quick_search.php',            
-            spinner: 'm-loader m-loader--skin-light m-loader--right',
-
-            input: '#m_quicksearch_input',
-            iconClose: '#m_quicksearch_close',
-            iconCancel: '#m_quicksearch_cancel',
-            iconSearch: '#m_quicksearch_search',
-
-            hasResultClass: 'm-list-search--has-result',
-            minLength: 1,            
-            templates: {
-                error: function(qs) {
-                    return '<div class="m-search-results m-search-results--skin-light"><span class="m-search-result__message">Something went wrong</div></div>';
-                }                            
-            }
-        });      
-    }
-
     var initScrollTop = function() {
         $('[data-toggle="m-scroll-top"]').mScrollTop({
             offset: 300,
@@ -6148,8 +6124,7 @@ var mLayout = function() {
         initHeader: function() {
             initStickyHeader();
             initHorMenu();
-            initTopbar();
-            initQuicksearch();
+            initTopbar();            
             initScrollTop();
         },
 

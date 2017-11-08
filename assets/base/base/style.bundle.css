@@ -1,25 +1,10 @@
 @charset "UTF-8";
-/**
-$m--root-font: (
-    size: (
-        desktop: 13px,
-        tablet: 13px,
-        mobile: 13px
-    ), 
-    weight: 300, 
-    color: (
-        light: #333333, 
-        dark: #efefef
-    )
-);
-*/
 /*
 sm: 544px,
 md: 768px,
 lg: 992px,
 xl: 1200px
 */
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   text-size-adjust: 100%;
