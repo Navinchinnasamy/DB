@@ -298,13 +298,11 @@ var Index = function () {
                                 // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
                                 $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             } else {
-                                // $("body").find("#result_from_query ol").append('<li>'+ret.msg+'</li>');
                                 $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--info"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             }
                         } catch (err) {
                             $(".process_running").hide();
                             $("#exampleValidator").show();
-                            // $("body").find("#result_from_query ol").append('<li style="color: red; font-weight: bold;">'+ret.msg+'</li>');
                             $("body").find(".m-list-timeline__items").append('<div class="m-list-timeline__item"> <span class="m-list-timeline__badge m-list-timeline__badge--danger"></span> <span class="m-list-timeline__text"> ' + ret.msg + ' </span> <span class="m-list-timeline__time"> ' + altDate(new Date()) + ' </span> </div>');
                             clearInterval(loopInterval);
                         }
@@ -340,16 +338,20 @@ var Index = function () {
 $(window).on("unload", function (e) {
     $.each($("#exampleValidator").find("input,select"), function (i, d) {
         var id = $(d).attr('id');
-        sessionStorage.setItem(id, $(d).val());
+        if(id != "reqfor"){
+            sessionStorage.setItem(id, $(d).val());
+        }
     });
 });
 
 $(window).on("load", function (e) {
     $.each($("#exampleValidator").find("input,select"), function (i, d) {
         var id = $(d).attr('id');
-        var val = sessionStorage.getItem(id);
-        if (val) {
-            $(d).val(val);
+        if(id != "reqfor") {
+            var val = sessionStorage.getItem(id);
+            if (val) {
+                $(d).val(val);
+            }
         }
     });
 });

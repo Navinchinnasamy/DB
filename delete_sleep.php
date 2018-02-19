@@ -12,15 +12,14 @@ if ($post['db']['dbtype'] == "mysql") {
     $password = $post['db']['password'];
 
     $db = mysqli_connect($host, $username, $password, $dbname);
-    $error1 = (!$db1) ? mysqli_connect_error() : "";
+    $error1 = (!$db) ? mysqli_connect_error() : "";
 } else {
     $host = "host = {$post['db']['host']}";
     $port = "port = {$post['db']['port']}";
     $dbname = "dbname = {$post['db']['database']}";
     $credentials = "user = {$post['db']['username']} password={$post['db']['password']}";
-
     $db = pg_connect("$host $port $dbname $credentials");
-    $error1 = (!$db1) ? pg_last_error() : "";
+    $error1 = (!$db) ? pg_last_error() : "";
 }
 
 if (!$db) {

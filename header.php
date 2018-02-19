@@ -72,7 +72,7 @@ $first_part = $components[2];
 														Hello,&nbsp;
 													</span>
                                             <span class="m-topbar__username">
-														Palani Velayudam
+														Navin
 													</span>
                                         </a>
                                         <div class="m-dropdown__wrapper">
@@ -127,7 +127,7 @@ $first_part = $components[2];
                         <div id="m_header_menu"
                              class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
                             <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-                                
+
 								<li class="m-menu__item <?php if ($first_part=="insert.php") {echo "m-menu__item--active"; } else  {echo "noactive";}?>" aria-haspopup="true">
                                     <a href="insert.php" class="m-menu__link ">
                                         <span class="m-menu__item-here"></span>
@@ -149,7 +149,7 @@ $first_part = $components[2];
 												</span>
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
